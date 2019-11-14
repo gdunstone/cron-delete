@@ -1,11 +1,17 @@
 # cron-delete
+
+[![Build Status](https://travis-ci.com/gdunstone/cron-delete.svg?branch=master)](https://travis-ci.com/gdunstone/cron-delete)
+
+_now with 100% more multiarch support!_
+
 deletes oldest files once a directory has reached a maximum size
 
-Currently only supports raspberry pi
+### Instructions:
 
-eg:
-`docker run --rm -d -e WATCH_DIRECTORY=/data -e WATCH_DIRECTORY_MAX_SIZE=8G appf/cron-delete`
+* targets specific directory set by the environment variable **WATCH_DIRECTORY**
 
+* set maximum size with **WATCH_DIRECTORY_MAX_SIZE** (8G, 1M, 180K)
 
+eg: 
 
-Soon will have multiarch support.
+`docker run -d -v $PWD:/data:rw -e WATCH_DIRECTORY=/data -e WATCH_DIRECTORY_MAX_SIZE=8G gudnstone/cron-delete`
